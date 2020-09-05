@@ -174,9 +174,50 @@ console.log(p)
 
 // 비동기를 동기처럼??
 
-
-
 setTimeout(function() {
   console.log('ASSA'); 
 }, 1000);
+
+// 프라미스의 등장
+// 프라미스 객체가 호출을 하면서 첫번째 인자와 두번째 인자에 함수를 넣어줌
+const p1 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    //이것도 클로저네 리졸브도
+    resolve("응답")
+  }, 1000)
+})
+// resolve를 호출하면 then 의 함수를 호출해줌
+// 대너블 객체 프라미스 객체
+// 이런걸 체이닝이라고 함
+p1
+  .then(() => {
+
+  })
+  .then(() => {
+
+  })
+
+// 비동기 함수의 등장!
+async function main() {
+  console.log('1');
+
+  console.log('2');
+}
+
+
+//커링?
+function fox(a,b,c) {
+
+}
+// 인자별로 쪼개는거
+// 근데 클로저로 커링을 할 수 있는거야
+function fox(a) {
+  return function(b) {
+    return function(c){
+      return a + b + c;
+    }
+  }
+}
+
+// 리덕스 시작!
 

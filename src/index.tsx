@@ -1,15 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-function App() {
+interface AppProps {
+  title: string;
+  color: string;
+}
+function App(props: AppProps) {
   return (
-    <h1>Tech Hello?</h1>
+    <h1>{props.title}</h1>
   )
 }
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <App title="techHello" color="blue" />
   </React.StrictMode>,
   document.getElementById('root')
 );
