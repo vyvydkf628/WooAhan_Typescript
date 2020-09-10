@@ -5,11 +5,19 @@ const SessionItem = ({ title }) => (
 )
 const App = (props) => {
   // 아키텍쳐는 작은 코드에서 시작된다.
+  const [displayOrder, toggleDisplayOrder] = React.useState('ASC');
+
+
   const { sessionList } = props.store;
   const orderedSessionList = sessionList.map((session, i) => ({
     ...session,
     order: i,
   }))
+
+  const onToggleDisplayOrder = () => {
+    toggleDisplayOrder(displayOrder === 'ASC' ? 'DESC' : 'ASC');
+  }
+
   return (
     <div>
       <header>
